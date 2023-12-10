@@ -1,0 +1,54 @@
+
+#Линейная форма модели для всех данных
+
+data_general <- read.csv("D:\\data.csv")
+
+#не использовали certificate_TV.MA 
+
+linear_model <- lm(worldwide_gross ~ rating + production_cost + opening_weekend + oscar + golden.globe +
+                     certificate_G + certificate_PG	+ certificate_PG.13	+ certificate_R, data = data_general)
+
+summary(linear_model)
+
+#Логарифмическая форма модели для всех данных
+
+#не использовали certificate_TV.MA 
+
+log_model <- lm(log(worldwide_gross) ~ log(rating) + log(production_cost) + log(opening_weekend) + oscar + golden.globe +
+                     certificate_G + certificate_PG	+ certificate_PG.13	+ certificate_R, data = data_general)
+
+summary(log_model)
+
+# Разделили на 2 выборки: высокобюджетные (data_high) и среднебюджетные (data_medium)
+
+
+data_high <- read.csv("D:\\data_high.csv")
+
+data_medium <- read.csv("D:\\data_medium.csv") 
+
+#Логарифмическая форма модели для высокобюджетных
+
+#не использовали certificate_TV.MA 
+
+log_model_high <- lm(log(worldwide_gross) ~ log(rating) + log(production_cost) + log(opening_weekend) + oscar + golden.globe +
+                  certificate_G + certificate_PG	+ certificate_PG.13	+ certificate_R, data = data_high)
+
+summary(log_model_high)
+
+#Логарифмическая форма модели для среднебюджетных
+
+#не использовали certificate_TV.MA 
+
+log_model_medium <- lm(log(worldwide_gross) ~ log(rating) + log(production_cost) + log(opening_weekend) + oscar + golden.globe +
+                       certificate_G + certificate_PG	+ certificate_PG.13	+ certificate_R, data = data_medium)
+
+summary(log_model_medium)
+
+library(stargazer)
+stargazer(linear_model, log_model, log_model_high, log_model_medium, 
+          digits = 2,
+          column.labels = c("linear general", 
+                            "log general",
+                            "log high",
+                            "log_mdeium"),
+          type = "html", out = "modeli_all.doc")
