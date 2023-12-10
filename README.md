@@ -12,4 +12,4 @@
 #### - data_high - данные о высокобюджетных фильмах. 
 #### - data-medium - данные о среднебюджетных фильмах.
 
-![alt text](https://www.chitalnya.ru/upload/523/d8a15fb3dedc3cb5851d86e556054ecd.gif)
+![alt text]([https://www.chitalnya.ru/upload/523/d8a15fb3dedc3cb5851d86e556054ecd.gif](https://www.chitalnya.ru/upload/134/eb9102106d974f5ab45d0dacb67914b1.jpg)https://www.chitalnya.ru/upload/134/eb9102106d974f5ab45d0dacb67914b1.jpg)
